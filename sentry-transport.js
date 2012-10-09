@@ -59,7 +59,7 @@ Sentry.prototype.log = function (level, msg, meta, callback) {
       this._sentry.captureError(new Error(msg), extra, function(err) {
         callback(null, true);
       });
-    } else if (this._levels_order.indexOf(level) > this._levels_order.indexOf(this.level)) {
+    } else if (this._levels_order.indexOf(level) >= this._levels_order.indexOf(this.level)) {
       this._sentry.captureMessage(msg, extra, function(err) {
         callback(null, true);
       });
